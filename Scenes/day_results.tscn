@@ -1,0 +1,190 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0mxt5apstru4"]
+
+[ext_resource type="Script" path="res://Scripts/DayResults.gd" id="1_5wled"]
+[ext_resource type="Theme" uid="uid://dg2dxep4h3rjx" path="res://UITheme/KenneyUI/kenneyUI.tres" id="2_m6i8a"]
+
+[sub_resource type="Animation" id="Animation_vj13g"]
+resource_name = "simulating_status"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/SimStatus:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Simulating", "Simulating .", "Simulating . .", "Simulating . . .", "Simulating . . . ."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2b67"]
+_data = {
+"simulating_status": SubResource("Animation_vj13g")
+}
+
+[node name="DayResults" type="Node2D"]
+script = ExtResource("1_5wled")
+metadata/_edit_horizontal_guides_ = [861.0]
+metadata/_edit_vertical_guides_ = [676.0, 6.0]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_m6i8a")
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+columns = 8
+
+[node name="time0845" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 883.0
+offset_right = 826.0
+offset_bottom = 922.0
+theme_override_font_sizes/font_size = 24
+text = "8:45 Exit:"
+
+[node name="time0900" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 911.0
+offset_right = 826.0
+offset_bottom = 950.0
+theme_override_font_sizes/font_size = 24
+text = "9:00 Exit:"
+
+[node name="time0930" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 938.0
+offset_right = 826.0
+offset_bottom = 977.0
+theme_override_font_sizes/font_size = 24
+text = "9:30 Exit:"
+
+[node name="time1000" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 968.0
+offset_right = 837.0
+offset_bottom = 1007.0
+theme_override_font_sizes/font_size = 24
+text = "10:00 Exit:"
+
+[node name="time1030" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 1000.0
+offset_right = 837.0
+offset_bottom = 1039.0
+theme_override_font_sizes/font_size = 24
+text = "10:30 Exit:"
+
+[node name="time1100" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 1030.0
+offset_right = 828.0
+offset_bottom = 1069.0
+theme_override_font_sizes/font_size = 24
+text = "11:00 Exit:"
+
+[node name="SimStatus" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1206.0
+offset_top = 872.0
+offset_right = 1551.0
+offset_bottom = 942.0
+theme_override_font_sizes/font_size = 48
+text = "Simulating"
+
+[node name="SimComplete" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1207.0
+offset_top = 872.0
+offset_right = 1689.0
+offset_bottom = 942.0
+theme_override_font_sizes/font_size = 48
+text = "Simulation Complete"
+
+[node name="EntryPrice" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 1032.0
+offset_right = 280.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 32
+text = "Entry Price:"
+
+[node name="Day" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 891.0
+offset_right = 280.0
+offset_bottom = 939.0
+theme_override_font_sizes/font_size = 32
+text = "Monday 21st"
+
+[node name="ProfitType" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 925.0
+offset_right = 433.0
+offset_bottom = 964.0
+theme_override_font_sizes/font_size = 32
+text = "Profit Type:"
+
+[node name="StopLoss" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 960.0
+offset_right = 249.0
+offset_bottom = 1008.0
+theme_override_font_sizes/font_size = 32
+text = "Stop Loss: "
+
+[node name="Entry" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 996.0
+offset_right = 249.0
+offset_bottom = 1044.0
+theme_override_font_sizes/font_size = 32
+text = "Entry:"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 875.0
+offset_right = 1012.0
+offset_bottom = 1068.0
+
+[node name="ContinueButton" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1438.0
+offset_top = 983.0
+offset_right = 1880.0
+offset_bottom = 1050.0
+theme_override_font_sizes/font_size = 36
+text = "Click to continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u2b67")
+}
+
+[connection signal="pressed" from="Control/ContinueButton" to="." method="_on_continue_button_pressed"]

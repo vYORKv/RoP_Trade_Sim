@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://baugls0yddtqe"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_g1c68"]
+[ext_resource type="Theme" uid="uid://dg2dxep4h3rjx" path="res://UITheme/KenneyUI/kenneyUI.tres" id="2_vbdg8"]
+[ext_resource type="FontFile" uid="uid://bkdqojlrjtj8r" path="res://UITheme/OpenSans-Regular.ttf" id="3_n00cs"]
+[ext_resource type="Theme" uid="uid://d1xxeystp0uiq" path="res://UITheme/KenneyUI/kenneyUI-blue.tres" id="4_d2mes"]
+[ext_resource type="Texture2D" uid="uid://c0s1af4mli0ga" path="res://instant_data_button.png" id="5_2v8k1"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_g1c68")
+metadata/_edit_vertical_guides_ = [927.0]
+metadata/_edit_horizontal_guides_ = [971.0]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 747.0
+offset_top = 164.0
+offset_right = 1230.0
+offset_bottom = 518.0
+theme = ExtResource("2_vbdg8")
+theme_override_fonts/font = ExtResource("3_n00cs")
+theme_override_font_sizes/font_size = 84
+text = "KumaKroy's
+RoP
+\"Z Finder\""
+horizontal_alignment = 1
+
+[node name="Begin" type="Button" parent="."]
+offset_left = 853.0
+offset_top = 649.0
+offset_right = 1133.0
+offset_bottom = 745.0
+theme = ExtResource("2_vbdg8")
+theme_override_font_sizes/font_size = 48
+text = "Begin"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 851.0
+offset_top = 779.0
+offset_right = 1130.0
+offset_bottom = 876.0
+theme = ExtResource("2_vbdg8")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1591.0
+offset_top = 1054.0
+offset_right = 1915.0
+offset_bottom = 1080.0
+theme = ExtResource("2_vbdg8")
+theme_override_font_sizes/font_size = 0
+text = "A rising tide lifts all boats..."
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+offset_left = 1773.0
+offset_right = 1920.0
+offset_bottom = 26.0
+text = "Instant Data Active"
+
+[node name="DarkTheme" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 971.0
+offset_right = 259.0
+offset_bottom = 1048.0
+theme = ExtResource("2_vbdg8")
+theme_override_font_sizes/font_size = 24
+text = "Dark Theme"
+
+[node name="LightTheme" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 971.0
+offset_right = 491.0
+offset_bottom = 1048.0
+theme = ExtResource("4_d2mes")
+theme_override_font_sizes/font_size = 24
+text = "Light Theme"
+
+[node name="FlatTheme" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 971.0
+offset_right = 720.0
+offset_bottom = 1047.0
+theme_override_font_sizes/font_size = 32
+text = "Flat Theme"
+
+[node name="InstantDataButton" type="TextureButton" parent="."]
+offset_left = 1904.0
+offset_top = 151.0
+offset_right = 1913.0
+offset_bottom = 159.0
+texture_normal = ExtResource("5_2v8k1")
+
+[node name="Version" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ChangelogButton" type="LinkButton" parent="."]
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 70.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 12
+text = "Changelog"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="ChangelogTitle" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 14.0
+offset_right = 1076.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 48
+text = "Changelog"
+
+[node name="ChangelogContent" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 108.0
+offset_right = 898.0
+offset_bottom = 178.0
+theme_override_font_sizes/font_size = 24
+
+[node name="ExitChangelogButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 1015.0
+offset_right = 985.0
+offset_bottom = 1068.0
+theme_override_font_sizes/font_size = 32
+text = "Return"
+
+[connection signal="pressed" from="Begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="DarkTheme" to="." method="_on_dark_theme_pressed"]
+[connection signal="pressed" from="LightTheme" to="." method="_on_light_theme_pressed"]
+[connection signal="pressed" from="FlatTheme" to="." method="_on_flat_theme_pressed"]
+[connection signal="pressed" from="InstantDataButton" to="." method="_on_instant_data_button_pressed"]
+[connection signal="pressed" from="ChangelogButton" to="." method="_on_changelog_button_pressed"]
+[connection signal="pressed" from="ColorRect/ExitChangelogButton" to="." method="_on_exit_changelog_button_pressed"]

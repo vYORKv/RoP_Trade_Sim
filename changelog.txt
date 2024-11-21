@@ -1,0 +1,23 @@
+v 0.9
++ Full trade function tracking SL and exits on S&P 500 Mini Futures
++ February 2024 data sets
+
+v 1.0 
++ Added light and dark themes to ui
++ January and March 2024 data sets
+- Removed Bid only and Ask only SL
+
+v 1.1
++ Entry options (8:29 - 10:00)
++ Instant data toggle
+
+v 1.2
++ 10:30 entry option
++ October through December 2023 program scenes
++ Changelog menu
+* Fixed results entry-text typo
+* Fixed skipping entry-id on entries after 8:29
+
+v 1.3
++ "Managed Profit" tracking and printout
++ "Reset SL" button

@@ -1,0 +1,339 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd2rm413yfitb"]
+
+[ext_resource type="Theme" uid="uid://dg2dxep4h3rjx" path="res://UITheme/KenneyUI/kenneyUI.tres" id="1_hr3ck"]
+
+[node name="November23" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_hr3ck")
+
+[node name="Sunday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 154.0
+offset_right = 444.0
+offset_bottom = 291.0
+text = "Sunday"
+
+[node name="Monday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 152.0
+offset_right = 646.0
+offset_bottom = 293.0
+text = "Monday"
+
+[node name="Tuesday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 153.0
+offset_right = 850.0
+offset_bottom = 295.0
+text = "Tuesday"
+
+[node name="Wednesday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 152.0
+offset_right = 1049.0
+offset_bottom = 294.0
+text = "Wednesday"
+
+[node name="Thursday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 152.0
+offset_right = 1246.0
+offset_bottom = 295.0
+text = "Thursday"
+
+[node name="Friday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1249.0
+offset_top = 151.0
+offset_right = 1447.0
+offset_bottom = 294.0
+text = "Friday"
+
+[node name="Saturday" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1451.0
+offset_top = 152.0
+offset_right = 1650.0
+offset_bottom = 294.0
+text = "Saturday"
+
+[node name="Sunday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 305.0
+offset_right = 444.0
+offset_bottom = 442.0
+text = "Sunday"
+
+[node name="Monday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 303.0
+offset_right = 646.0
+offset_bottom = 444.0
+text = "Monday"
+
+[node name="Tuesday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 304.0
+offset_right = 850.0
+offset_bottom = 446.0
+text = "Tuesday"
+
+[node name="Wednesday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 303.0
+offset_right = 1049.0
+offset_bottom = 445.0
+text = "Wednesday"
+
+[node name="Thursday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 303.0
+offset_right = 1246.0
+offset_bottom = 446.0
+text = "Thursday"
+
+[node name="Friday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1249.0
+offset_top = 302.0
+offset_right = 1447.0
+offset_bottom = 445.0
+text = "Friday"
+
+[node name="Saturday2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1451.0
+offset_top = 303.0
+offset_right = 1650.0
+offset_bottom = 445.0
+text = "Saturday"
+
+[node name="Sunday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 456.0
+offset_right = 443.0
+offset_bottom = 593.0
+text = "Sunday"
+
+[node name="Monday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 454.0
+offset_right = 645.0
+offset_bottom = 595.0
+text = "Monday"
+
+[node name="Tuesday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 455.0
+offset_right = 849.0
+offset_bottom = 597.0
+text = "Tuesday"
+
+[node name="Wednesday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 454.0
+offset_right = 1048.0
+offset_bottom = 596.0
+text = "Wednesday"
+
+[node name="Thursday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 454.0
+offset_right = 1245.0
+offset_bottom = 597.0
+text = "Thursday"
+
+[node name="Friday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 453.0
+offset_right = 1446.0
+offset_bottom = 596.0
+text = "Friday"
+
+[node name="Saturday3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1451.0
+offset_top = 455.0
+offset_right = 1650.0
+offset_bottom = 597.0
+text = "Saturday"
+
+[node name="Sunday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 607.0
+offset_right = 445.0
+offset_bottom = 744.0
+text = "Sunday"
+
+[node name="Monday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 605.0
+offset_right = 647.0
+offset_bottom = 746.0
+text = "Monday"
+
+[node name="Tuesday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 606.0
+offset_right = 851.0
+offset_bottom = 748.0
+text = "Tuesday"
+
+[node name="Wednesday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 605.0
+offset_right = 1050.0
+offset_bottom = 747.0
+text = "Wednesday"
+
+[node name="Thursday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1054.0
+offset_top = 605.0
+offset_right = 1247.0
+offset_bottom = 748.0
+text = "Thursday"
+
+[node name="Friday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 604.0
+offset_right = 1448.0
+offset_bottom = 747.0
+text = "Friday"
+
+[node name="Saturday4" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1449.0
+offset_top = 604.0
+offset_right = 1648.0
+offset_bottom = 746.0
+text = "Saturday"
+
+[node name="Sunday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 754.0
+offset_right = 445.0
+offset_bottom = 891.0
+text = "Sunday"
+
+[node name="Monday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 752.0
+offset_right = 647.0
+offset_bottom = 893.0
+text = "Monday"
+
+[node name="Tuesday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 753.0
+offset_right = 851.0
+offset_bottom = 895.0
+text = "Tuesday"
+
+[node name="Wednesday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 854.0
+offset_top = 752.0
+offset_right = 1050.0
+offset_bottom = 894.0
+text = "Wednesday"
+
+[node name="Thursday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1054.0
+offset_top = 752.0
+offset_right = 1247.0
+offset_bottom = 895.0
+text = "Thursday"
+
+[node name="Friday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 751.0
+offset_right = 1448.0
+offset_bottom = 894.0
+text = "Friday"
+
+[node name="Saturday5" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1451.0
+offset_top = 753.0
+offset_right = 1650.0
+offset_bottom = 895.0
+text = "Saturday"
+
+[node name="DualSL" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 72.0
+offset_right = 1038.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 22
+placeholder_text = "Enter SL"
+alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 16.0
+offset_right = 1386.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "* Set SL Below Before Selecting Day *"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 72.0
+offset_right = 669.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 64
+text = "November 2024"
+
+[node name="Label3" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 911.0
+offset_top = 82.0
+offset_right = 1081.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 32
+text = "SL : x Ticks"
+
+[node name="BackButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 957.0
+offset_right = 1302.0
+offset_bottom = 1039.0
+theme_override_font_sizes/font_size = 36
+text = "Return to Month Selection"

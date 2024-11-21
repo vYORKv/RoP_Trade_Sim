@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx58ll52x1nhi"]
+
+[ext_resource type="Script" path="res://Scripts/year.gd" id="1_wknsp"]
+[ext_resource type="Theme" uid="uid://dg2dxep4h3rjx" path="res://UITheme/KenneyUI/kenneyUI.tres" id="2_gf8uw"]
+
+[node name="Year" type="Node2D"]
+script = ExtResource("1_wknsp")
+metadata/_edit_vertical_guides_ = [949.0, 899.0, 1000.0]
+metadata/_edit_horizontal_guides_ = [468.0]
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_gf8uw")
+
+[node name="2023" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 468.0
+offset_right = 899.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 64
+disabled = true
+text = "2023"
+
+[node name="2024" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 468.0
+offset_right = 1256.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 64
+text = "2024"
+
+[node name="BackButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 923.0
+offset_right = 1070.0
+offset_bottom = 1029.0
+theme_override_font_sizes/font_size = 54
+text = "Back"
+
+[node name="Label" type="Label" parent="Buttons"]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 222.0
+offset_right = 1394.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 92
+text = "Select a Year"
+
+[connection signal="pressed" from="Buttons/2024" to="." method="_on_2024_pressed"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="_on_back_button_pressed"]
