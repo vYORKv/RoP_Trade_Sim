@@ -1,10 +1,6 @@
-[gd_resource type="Theme" load_steps=34 format=3 uid="uid://dg2dxep4h3rjx"]
-
-[ext_resource type="Texture2D" uid="uid://ta4sj8vn1ltg" path="res://UITheme/KenneyUI/UIpack_vector.svg" id="1"]
-[ext_resource type="FontFile" uid="uid://dqvqp0sp767b5" path="res://UITheme/KenneyUI/kenvector_future.ttf" id="2"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://dg2dxep4h3rjx"]
 
 [sub_resource type="FontFile" id="23"]
-fallbacks = Array[Font]([ExtResource("2")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -183,37 +179,29 @@ cache/0/26/0/kerning_overrides/24/0 = Vector2(0, 0)
 cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="1"]
-texture = ExtResource("1")
 region_rect = Rect2(211, 0, 190, 49)
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
 [sub_resource type="StyleBoxTexture" id="3"]
-texture = ExtResource("1")
 region_rect = Rect2(1, 0, 190, 49)
 
 [sub_resource type="StyleBoxTexture" id="4"]
-texture = ExtResource("1")
 region_rect = Rect2(211, 0, 190, 49)
 
 [sub_resource type="StyleBoxTexture" id="5"]
-texture = ExtResource("1")
 region_rect = Rect2(421, 4, 190, 45)
 
 [sub_resource type="AtlasTexture" id="6"]
-atlas = ExtResource("1")
 region = Rect2(250, 544, 36, 36)
 
 [sub_resource type="AtlasTexture" id="7"]
-atlas = ExtResource("1")
 region = Rect2(251, 440, 36, 36)
 
 [sub_resource type="AtlasTexture" id="8"]
-atlas = ExtResource("1")
 region = Rect2(1, 440, 36, 36)
 
 [sub_resource type="AtlasTexture" id="9"]
-atlas = ExtResource("1")
 region = Rect2(0, 544, 36, 36)
 
 [sub_resource type="StyleBoxEmpty" id="10"]
@@ -225,33 +213,26 @@ region = Rect2(0, 544, 36, 36)
 [sub_resource type="StyleBoxEmpty" id="13"]
 
 [sub_resource type="AtlasTexture" id="31"]
-atlas = ExtResource("1")
 region = Rect2(250, 644, 36, 36)
 
 [sub_resource type="AtlasTexture" id="32"]
-atlas = ExtResource("1")
 region = Rect2(250, 544, 36, 36)
 
 [sub_resource type="AtlasTexture" id="14"]
-atlas = ExtResource("1")
 region = Rect2(872, 444, 28, 42)
 
 [sub_resource type="StyleBoxTexture" id="15"]
-texture = ExtResource("1")
 region_rect = Rect2(840, 316, 192, 6)
 
 [sub_resource type="StyleBoxEmpty" id="16"]
 
 [sub_resource type="StyleBoxTexture" id="17"]
-texture = ExtResource("1")
 region_rect = Rect2(629, 317, 194, 49)
 
 [sub_resource type="AtlasTexture" id="18"]
-atlas = ExtResource("1")
 region = Rect2(812, 458, 28, 10)
 
 [sub_resource type="StyleBoxTexture" id="19"]
-texture = ExtResource("1")
 texture_margin_left = 6.0
 texture_margin_top = 6.0
 texture_margin_right = 6.0
@@ -260,19 +241,15 @@ region_rect = Rect2(1, 310, 100, 100)
 draw_center = false
 
 [sub_resource type="AtlasTexture" id="20"]
-atlas = ExtResource("1")
 region = Rect2(250, 544, 36, 36)
 
 [sub_resource type="AtlasTexture" id="26"]
-atlas = ExtResource("1")
 region = Rect2(251, 440, 36, 36)
 
 [sub_resource type="AtlasTexture" id="27"]
-atlas = ExtResource("1")
 region = Rect2(1, 440, 36, 36)
 
 [sub_resource type="AtlasTexture" id="28"]
-atlas = ExtResource("1")
 region = Rect2(0, 544, 36, 36)
 
 [sub_resource type="StyleBoxTexture" id="29"]
@@ -280,7 +257,6 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-texture = ExtResource("1")
 region_rect = Rect2(321, 440, 49, 49)
 
 [sub_resource type="StyleBoxTexture" id="30"]
@@ -288,7 +264,6 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = ExtResource("1")
 expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 region_rect = Rect2(321, 440, 49, 49)
@@ -296,16 +271,13 @@ region_rect = Rect2(321, 440, 49, 49)
 [sub_resource type="StyleBoxTexture" id="22"]
 content_margin_left = 12.0
 content_margin_top = 10.0
-texture = ExtResource("1")
 axis_stretch_vertical = 1
 region_rect = Rect2(1, 310, 100, 100)
 
 [sub_resource type="AtlasTexture" id="24"]
-atlas = ExtResource("1")
 region = Rect2(1007, 450, 39, 31)
 
 [sub_resource type="StyleBoxTexture" id="25"]
-texture = ExtResource("1")
 region_rect = Rect2(1051, 317, 4, 100)
 
 [resource]

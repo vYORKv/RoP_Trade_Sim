@@ -1,7 +1,7 @@
 extends Node2D
 
-var dark_ui = preload("res://UITheme/KenneyUI/kenneyUI.tres")
-var light_ui = preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
+var dark_ui := preload("res://UITheme/KenneyUI/kenneyUI.tres")
+var light_ui := preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
 
 # Remember 1 / .25 = 4 and 1.75 / .25 = 7, this is how we move in ticks
 # 8:29 opening is baseline. Anything beneath needs to be negative(-) in value
@@ -10,24 +10,25 @@ var light_ui = preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
 
 # v2 add exits at 0831, 0901, etc, to check for dramatic surges and shifts
 
-@onready var ResultList = $Control/GridContainer
+@onready var ResultList := $Control/GridContainer
 
 #res://ESData/2024/02_2024/feb_19_24.json
 
-var day_data_path = "res://ESData/2024/02_2024/feb_19_24.json"
+var day_data_path := "res://ESData/2024/02_2024/feb_19_24.json"
 
-var current_day = "Monday 21st"
+var current_day := "Monday 21st"
 
-var bid_sl
-var ask_sl
+var bid_sl: int
+var ask_sl: int
 
-var b_price
-var a_price
+var b_price: float
+var a_price: float
 
-var entry
-var profit_type
+var entry: int
+var profit_type: String
 
-func _ready():
+func _ready() -> void:
+	#print(typeof())
 	pass
 #	var day_data = load_json_file(day_data_path)
 #	test_data(day_data_path, -10, 10)
@@ -43,7 +44,7 @@ func _ready():
 #	print(day_data)
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if Global.dark_theme:
 		$Control.set_theme(dark_ui)
 		$Control/Panel.set_theme(dark_ui)
@@ -63,9 +64,9 @@ func _process(delta):
 #	print(b_price)
 #	print(a_price)
 
-func test_data(data_path):
-	var bid_stopped = false
-	var ask_stopped = false
+func test_data(data_path: String) -> void:
+	var bid_stopped := false
+	var ask_stopped := false
 	$Control.visible = true
 	if Global.flat_theme or Global.light_theme:
 		$Control/Panel.visible = false
@@ -89,9 +90,9 @@ func test_data(data_path):
 	if !Global.instant_data:
 		$Control/SimStatus.visible = true
 		$AnimationPlayer.play("simulating_status")
-	var data = load_json_file(data_path)
-	var day_open
-	var open_id
+	var data: Dictionary = load_json_file(data_path)
+	var day_open: float
+	var open_id: int
 #	var open_0830 = data[str(1)]["open"]
 	if entry == 829:
 		day_open = data[str(0)]["open"]
@@ -115,34 +116,34 @@ func test_data(data_path):
 	$Control/ProfitType.text = "Profit Type: " + str(profit_type).capitalize()
 #	print(day_open)
 	#### Create price points for each bid and ask position based on ticks from day_open
-	var ask_price_diff = ask_sl * .25
-	var ask_price = day_open + ask_price_diff
+	var ask_price_diff: float = ask_sl * .25
+	var ask_price: float = day_open + ask_price_diff
 	a_price = ask_price
 #	print(ask_price_diff)
 #	print(ask_price)
-	var bid_price_diff = bid_sl * .25
-	var bid_price = day_open + bid_price_diff
+	var bid_price_diff: float = bid_sl * .25
+	var bid_price: float = day_open + bid_price_diff
 	b_price = bid_price
 #	print(bid_price_diff)
 #	print(bid_price)
 	##### Create price points for each bid and ask position based on ticks from day_open
-	var exit_0845
-	var exit_0900
-	var exit_0930
-	var exit_1000
-	var exit_1030
-	var exit_1100
+	var exit_0845: float
+	var exit_0900: float
+	var exit_0930: float
+	var exit_1000: float
+	var exit_1030: float
+	var exit_1100: float
 	
-	var highest_profit = 0
+	var highest_profit := 0
 	
 	for i in 182:
 		if !Global.instant_data:
 			await get_tree().create_timer(.05).timeout
-		var i_time = data[str(i)]["time"]
-		var i_high = data[str(i)]["high"]
-		var i_low = data[str(i)]["low"]
-		var this_pass_bid_stop = false
-		var this_pass_ask_stop = false
+		var i_time: String = data[str(i)]["time"]
+		var i_high: float = data[str(i)]["high"]
+		var i_low: float = data[str(i)]["low"]
+		var this_pass_bid_stop := false
+		var this_pass_ask_stop := false
 		# Create if statement that checks if both stop losses are hit, if so, return and print time stopped out
 		
 		# Loop through each id, but pass if is earlier than entry
@@ -158,7 +159,7 @@ func test_data(data_path):
 				this_pass_ask_stop = true
 		
 		# If Statements that print data to labels
-		var entry = Label.new()
+		var entry := Label.new()
 		entry.set_name("Entry " + str(i))
 		entry.set("theme_override_font_sizes/font_size", 18)
 #		if i_high > open_0830:
@@ -176,12 +177,11 @@ func test_data(data_path):
 		
 		# Check the highest possible profit during this minute
 		if ask_stopped and !bid_stopped:
-			var i_profit = i_high - day_open
+			var i_profit := i_high - day_open
 			if i_profit > highest_profit:
 				highest_profit = i_profit
-				print(highest_profit)
 		elif !ask_stopped and bid_stopped:
-			var i_profit = day_open - i_low
+			var i_profit := day_open - i_low
 			if i_profit > highest_profit:
 				highest_profit = i_profit
 		
@@ -194,17 +194,17 @@ func test_data(data_path):
 					exit_0845 = 0
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_0845 = (profit / .25) - ask_sl
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_0845 = (profit / .25) - ask_sl
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0845 = -double_sl
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 			elif profit_type == "managed":
@@ -212,7 +212,7 @@ func test_data(data_path):
 					exit_0845 = 0
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0845 = -double_sl
 					$Control/time0845.text = "8:45 Exit: " + str(exit_0845) + " ticks"
 				else:
@@ -227,17 +227,17 @@ func test_data(data_path):
 					exit_0900 = 0
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_0900 = (profit / .25) - ask_sl
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_0900 = (profit / .25) - ask_sl
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0900 = -double_sl
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 			elif profit_type == "managed":
@@ -245,7 +245,7 @@ func test_data(data_path):
 					exit_0900 = 0
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0900 = -double_sl
 					$Control/time0900.text = "9:00 Exit: " + str(exit_0900) + " ticks"
 				else:
@@ -260,17 +260,17 @@ func test_data(data_path):
 					exit_0930 = 0
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_0930 = (profit / .25) - ask_sl
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_0930 = (profit / .25) - ask_sl
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0930 = -double_sl
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 			elif profit_type == "managed":
@@ -278,7 +278,7 @@ func test_data(data_path):
 					exit_0930 = 0
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_0930 = -double_sl
 					$Control/time0930.text = "9:30 Exit: " + str(exit_0930) + " ticks"
 				else:
@@ -293,17 +293,17 @@ func test_data(data_path):
 					exit_1000 = 0
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_1000 = (profit / .25) - ask_sl
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_1000 = (profit / .25) - ask_sl
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1000 = -double_sl
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 			elif profit_type == "managed":
@@ -311,7 +311,7 @@ func test_data(data_path):
 					exit_1000 = 0
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1000 = -double_sl
 					$Control/time1000.text = "10:00 Exit: " + str(exit_1000) + " ticks"
 				else:
@@ -326,17 +326,17 @@ func test_data(data_path):
 					exit_1030 = 0
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_1030 = (profit / .25) - ask_sl
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_1030 = (profit / .25) - ask_sl
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1030 = -double_sl
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 			elif profit_type == "managed":
@@ -344,7 +344,7 @@ func test_data(data_path):
 					exit_1030 = 0
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1030 = -double_sl
 					$Control/time1030.text = "10:30 Exit: " + str(exit_1030) + " ticks"
 				else:
@@ -357,17 +357,17 @@ func test_data(data_path):
 					exit_1100 = 0
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 				elif bid_stopped and !ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = day_open - current_close
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = day_open - current_close
 					exit_1100 = (profit / .25) - ask_sl
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 				elif !bid_stopped and ask_stopped:
-					var current_close = data[str(i)]["close"]
-					var profit = current_close - day_open
+					var current_close: float = data[str(i)]["close"]
+					var profit: float = current_close - day_open
 					exit_1100 = (profit / .25) - ask_sl
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 				elif bid_stopped and ask_stopped:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1100 = -double_sl
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 			elif profit_type == "managed":
@@ -375,7 +375,7 @@ func test_data(data_path):
 					exit_1100 = 0
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 				elif bid_stopped and ask_stopped and highest_profit == 0:
-					var double_sl = ask_sl * 2
+					var double_sl := ask_sl * 2
 					exit_1100 = -double_sl
 					$Control/time1100.text = "11:00 Exit: " + str(exit_1100) + " ticks"
 				else:
@@ -402,12 +402,12 @@ func test_data(data_path):
 				# Post 11:00 exit profit converted to ticks
 		# Calculate profits of bid vs ask, may be done by hand in data collection
 
-func check_high_close(): # Function made so I could debug and test relation of high to close
+func check_high_close() -> void: # Function made so I could debug and test relation of high to close
 	var data = load_json_file(day_data_path)
 	for i in 182:
-		var i_high = data[str(i)]["high"]
+		var i_high: float = data[str(i)]["high"]
 		print(str(i) + " " + str(i_high))
-		var i_close = data[str(i)]["close"]
+		var i_close: float = data[str(i)]["close"]
 		print(str(i) + " " + str(i_close))
 #		if i_close == i_high:
 #			print(str(i) + "  is equal to the high!")
@@ -416,18 +416,20 @@ func check_high_close(): # Function made so I could debug and test relation of h
 		elif i_close == i_high:
 			print(str(i) + "  is equal to the high!")
 
-func load_json_file(file_path : String): # Loads and reads JSON file with string path arg
+func load_json_file(file_path : String) -> Dictionary: # Loads and reads JSON file with string path arg
+	var parsed_result: Dictionary
 	if FileAccess.file_exists(file_path):
-		var data_file = FileAccess.open(file_path, FileAccess.READ)
-		var parsed_result = JSON.parse_string(data_file.get_as_text())
-		if parsed_result is Dictionary:
-			return parsed_result
-		else:
-			print("Read File Error")
+		var data_file := FileAccess.open(file_path, FileAccess.READ)
+		parsed_result = JSON.parse_string(data_file.get_as_text())
 	else:
 		print("File Not Found")
+	return parsed_result
+		#else:
+			#print("Read File Error")
+	#else:
+		#print("File Not Found")
 
-func _on_continue_button_pressed():
+func _on_continue_button_pressed() -> void:
 	$Control/SimComplete.visible = false
 	$Control/ContinueButton.visible = false
 	$Control.visible = false

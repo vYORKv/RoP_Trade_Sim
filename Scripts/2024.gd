@@ -1,9 +1,9 @@
 extends Node2D
 
-var dark_ui = preload("res://UITheme/KenneyUI/kenneyUI.tres")
-var light_ui = preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
+var dark_ui := preload("res://UITheme/KenneyUI/kenneyUI.tres")
+var light_ui := preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
 
-func _ready():
+func _ready() -> void:
 	if Global.dark_theme:
 		$January.set_theme(dark_ui)
 		$February.set_theme(dark_ui)
@@ -50,14 +50,14 @@ func _ready():
 		$Label.set_theme(null)
 		$BackButton.set_theme(null)
 
-func _on_february_pressed():
+func _on_february_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/scenes_2024/february_24.tscn")
 
-func _on_january_pressed():
+func _on_january_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/scenes_2024/january_24.tscn")
 
-func _on_march_pressed():
+func _on_march_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/scenes_2024/march_24.tscn")
 
-func _on_back_button_pressed():
+func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/year.tscn")

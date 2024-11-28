@@ -1,16 +1,16 @@
 extends Node2D
 
-var dark_ui = preload("res://UITheme/KenneyUI/kenneyUI.tres")
-var light_ui = preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
+var dark_ui := preload("res://UITheme/KenneyUI/kenneyUI.tres")
+var light_ui := preload("res://UITheme/KenneyUI/kenneyUI-blue.tres")
 
-@onready var DarkTheme = $DarkTheme
-@onready var LightTheme = $LightTheme
-@onready var FlatTheme = $FlatTheme
+@onready var DarkTheme := $DarkTheme
+@onready var LightTheme := $LightTheme
+@onready var FlatTheme := $FlatTheme
 
-@onready var changelog_res = "res://changelog.txt"
+@onready var changelog_res := "res://changelog.txt"
 
 
-func _ready():
+func _ready() -> void:
 	load_changelog(changelog_res)
 	$Version.text = Global.version
 	if Global.dark_theme:
@@ -25,13 +25,13 @@ func _ready():
 	if Global.instant_data:
 		$Label3.visible = true
 
-func _on_begin_pressed():
+func _on_begin_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/year.tscn")
 
-func _on_quit_pressed():
+func _on_quit_pressed() -> void:
 	get_tree().quit()
 
-func _on_dark_theme_pressed():
+func _on_dark_theme_pressed() -> void:
 	DarkTheme.disabled = true
 	LightTheme.disabled = false
 	FlatTheme.disabled = false
@@ -40,7 +40,7 @@ func _on_dark_theme_pressed():
 	Global.flat_theme = false
 	apply_dark_theme()
 
-func _on_light_theme_pressed():
+func _on_light_theme_pressed() -> void:
 	LightTheme.disabled = true
 	DarkTheme.disabled = false
 	FlatTheme.disabled = false
@@ -49,7 +49,7 @@ func _on_light_theme_pressed():
 	Global.flat_theme = false
 	apply_light_theme()
 
-func _on_flat_theme_pressed():
+func _on_flat_theme_pressed() -> void:
 	FlatTheme.disabled = true
 	LightTheme.disabled = false
 	DarkTheme.disabled = false
@@ -58,28 +58,28 @@ func _on_flat_theme_pressed():
 	Global.dark_theme = false
 	apply_flat_theme()
 
-func apply_dark_theme():
+func apply_dark_theme() -> void:
 	RenderingServer.set_default_clear_color(Color(0, 0, 0, 255))
 	$Begin.set_theme(dark_ui)
 	$Quit.set_theme(dark_ui)
 	$Label.set_theme(dark_ui)
 	$Label2.set_theme(dark_ui)
 
-func apply_light_theme():
+func apply_light_theme() -> void:
 	RenderingServer.set_default_clear_color(Color(0.50, 0.50, 0.50, 1.00))
 	$Begin.set_theme(light_ui)
 	$Quit.set_theme(light_ui)
 	$Label.set_theme(light_ui)
 	$Label2.set_theme(light_ui)
 
-func apply_flat_theme():
+func apply_flat_theme() -> void:
 	RenderingServer.set_default_clear_color(Color(0.30, 0.30, 0.30, 1.00))
 	$Begin.set_theme(null)
 	$Quit.set_theme(null)
 	$Label.set_theme(null)
 	$Label2.set_theme(null)
 
-func _on_instant_data_button_pressed():
+func _on_instant_data_button_pressed() -> void:
 	if Global.instant_data:
 		Global.instant_data = false
 		$Label3.visible = false
@@ -87,13 +87,13 @@ func _on_instant_data_button_pressed():
 		Global.instant_data = true
 		$Label3.visible = true
 
-func _on_changelog_button_pressed():
+func _on_changelog_button_pressed() -> void:
 	$ColorRect.visible = true
 
-func load_changelog(file):
-	var f = FileAccess.open(file, FileAccess.READ)
-	var text = f.get_as_text()
+func load_changelog(file: String) -> void:
+	var f := FileAccess.open(file, FileAccess.READ)
+	var text := f.get_as_text()
 	$ColorRect/ChangelogContent.text = text
 
-func _on_exit_changelog_button_pressed():
+func _on_exit_changelog_button_pressed() -> void:
 	$ColorRect.visible = false

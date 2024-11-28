@@ -12,7 +12,7 @@ config_version=5
 
 config/name="RoP_Trade_Sim"
 run/main_scene="res://Scenes/program.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://chance.png"
 
 [autoload]
