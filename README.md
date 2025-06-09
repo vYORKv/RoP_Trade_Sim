@@ -8,5 +8,5 @@ I find that backtesting outside of trading software in this way has many benefit
 
 This is the first prototype of this application, and I have since made a fully-fledged backtesting software that I will not be releasing to the public until summer 2026.
 
-# Note
-The market data in this project was purchased from a data broker in its initial form. We have since reformatted and modified the data in such a way that you can legally use the data for your own projects. Feel free to make use of this data with full permissions.
+# Data Disclaimer
+The market data in this project was purchased from a data broker in its initial form. I have since reformatted and modified the data in such a way that you can legally use the data for your own projects. Feel free to make use of this data with full permissions.
